@@ -52,7 +52,7 @@ public class Assignment_3 {
         System.out.println(stringVariable);
     }
 
-    private static int InputValidIntegerNumber(Scanner scanner, String nameVariable) {
+    public static int InputValidIntegerNumber(Scanner scanner, String nameVariable) {
         int intVariable;
         System.out.println("Enter an integer " + nameVariable);
         do {
