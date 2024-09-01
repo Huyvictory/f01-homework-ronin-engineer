@@ -50,7 +50,8 @@ public class Assignment_7 {
 
         public Fraction(double numerator, double denominator) {
             this.numerator = numerator;
-            this.denominator = denominator;
+            // If denominator is 0, set it to 1. To avoid division by zero exception
+            this.denominator = denominator == 0 ? 1 : denominator;
         }
 
         public void printDetailsFraction(double numerator, double denominator) {
@@ -68,10 +69,10 @@ public class Assignment_7 {
             return findGCD(denominator, numerator % denominator);
         }
 
-        public void shortenFraction() {
-            double gcd = findGCD(numerator, denominator);
-            double shortenedNumerator = numerator / gcd;
-            double shortenedDenominator = denominator / gcd;
+        public void shortenFraction(double numeratorResult, double denominatorResult) {
+            double gcd = findGCD(numeratorResult, denominatorResult);
+            double shortenedNumerator = numeratorResult / gcd;
+            double shortenedDenominator = denominatorResult / gcd;
             printDetailsFraction(shortenedNumerator, shortenedDenominator);
         }
 
@@ -88,11 +89,7 @@ public class Assignment_7 {
             }
 
             // Shorten fraction after addition
-            double gcd = findGCD(numeratorResult, denominatorResult);
-            numeratorResult = numeratorResult / gcd;
-            denominatorResult = denominatorResult / gcd;
-
-            printDetailsFraction(numeratorResult, denominatorResult);
+            shortenFraction(numeratorResult, denominatorResult);
         }
 
         public void subtractFraction(Fraction other) {
@@ -107,11 +104,7 @@ public class Assignment_7 {
             }
 
             // Shorten fraction after subtraction
-            double gcd = findGCD(numeratorResult, denominatorResult);
-            numeratorResult = numeratorResult / gcd;
-            denominatorResult = denominatorResult / gcd;
-
-            printDetailsFraction(numeratorResult, denominatorResult);
+            shortenFraction(numeratorResult, denominatorResult);
         }
 
         public void multiplyFraction(Fraction other) {
@@ -119,11 +112,7 @@ public class Assignment_7 {
             double denominatorResult = denominator * other.denominator;
 
             // Shorten fraction after multiplication
-            double gcd = findGCD(numeratorResult, denominatorResult);
-            numeratorResult = numeratorResult / gcd;
-            denominatorResult = denominatorResult / gcd;
-
-            printDetailsFraction(numeratorResult, denominatorResult);
+            shortenFraction(numeratorResult, denominatorResult);
         }
 
         public void divideFraction(Fraction other) {
@@ -131,11 +120,7 @@ public class Assignment_7 {
             double denominatorResult = denominator * other.numerator;
 
             // Shorten fraction after division
-            double gcd = findGCD(numeratorResult, denominatorResult);
-            numeratorResult = numeratorResult / gcd;
-            denominatorResult = denominatorResult / gcd;
-
-            printDetailsFraction(numeratorResult, denominatorResult);
+            shortenFraction(numeratorResult, denominatorResult);
         }
 
     }
@@ -144,14 +129,16 @@ public class Assignment_7 {
         Fraction fraction1 = new Fraction(1, 2);
         Fraction fraction2 = new Fraction(2, 3);
         Fraction fraction3 = new Fraction(4, 6);
+        Fraction fractionDenominatorZero = new Fraction(6, 0);
 
         System.out.println("Get details information of some fractions");
         fraction1.getValue();
         fraction3.getValue();
+        fractionDenominatorZero.getValue();
         System.out.println();
 
         System.out.println("Shorten fraction");
-        fraction3.shortenFraction();
+        fraction3.shortenFraction(fraction3.numerator, fraction3.denominator);
         System.out.println();
 
         System.out.println("Add, subtract, multiply and divide between fractions 1 and 2");
