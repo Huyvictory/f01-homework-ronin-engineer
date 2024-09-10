@@ -222,14 +222,14 @@ public class Assignment_11 {
         QueueCustom queueCustom = new QueueCustom();
 
         queueCustom.init();
-        System.out.printf("Is queue empty: %s\n", queueCustom.isEmpty() == -1 ? "Yes" : "No");
+        System.out.printf("Is Queue empty: %s\n", queueCustom.isEmpty() == -1 ? "Yes" : "No");
         queueCustom.enQueue(1);
         queueCustom.enQueue(2);
         queueCustom.enQueue(3);
         queueCustom.enQueue(4);
         queueCustom.enQueue(5);
         System.out.println("Size: " + queueCustom.size());
-        System.out.printf("Is queue empty: %s\n", queueCustom.isEmpty() == -1 ? "Yes" : "No");
+        System.out.printf("Is Queue empty: %s\n", queueCustom.isEmpty() == -1 ? "Yes" : "No");
         queueCustom.deQueue();
         System.out.println(queueCustom.size());
         queueCustom.peek();
