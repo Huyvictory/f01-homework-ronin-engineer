@@ -57,6 +57,12 @@ public class Assignment_11 {
         Bai7();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 8
+        System.out.println("*****************************************");
+        Bai8();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -320,5 +326,47 @@ public class Assignment_11 {
         for (int num : testNumbers) {
             System.out.println(num + " in binary: " + decimalToBinaryStack(num));
         }
+    }
+
+    private static boolean isValidMathExpression(String expression) {
+        String openSymbols = "({[";
+        String closeSymbols = ")}]";
+        ArrayList<String> validMatchingPairs = new ArrayList<>();
+        validMatchingPairs.add("()");
+        validMatchingPairs.add("[]");
+        validMatchingPairs.add("{}");
+
+        Stack<Character> stackOpenSymbols = new Stack<>();
+
+        for (char c : expression.toCharArray()) {
+            if (openSymbols.indexOf(c) != -1) {
+                stackOpenSymbols.push(c);
+            } else {
+                if (closeSymbols.indexOf(c) != -1) {
+                    String pairSymbol = new String(new char[]{stackOpenSymbols.peek(), c});
+
+                    if (!validMatchingPairs.contains(pairSymbol) || stackOpenSymbols.isEmpty()) {
+                        return false;
+                    }
+                    stackOpenSymbols.pop();
+                }
+            }
+        }
+
+        return stackOpenSymbols.isEmpty();
+    }
+
+    private static void Bai8() {
+        String testCase1 = "{2 + 3 * (5/3^2)}/{7 * b}";
+        System.out.println(isValidMathExpression(testCase1) ? "Valid" : "Invalid");
+
+        String testCase2 = "2 + {3 * [4 + 6 - (2/3^2)]}";
+        System.out.println(isValidMathExpression(testCase2) ? "Valid" : "Invalid");
+
+        String testCase3 = "{3 + (6 - [5 * 2)}";
+        System.out.println(isValidMathExpression(testCase3) ? "Valid" : "Invalid");
+
+        String testCase4 = "4 + (6 * (5 - a)";
+        System.out.println(isValidMathExpression(testCase4) ? "Valid" : "Invalid");
     }
 }
