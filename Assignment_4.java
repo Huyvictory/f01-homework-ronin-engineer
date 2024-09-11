@@ -43,6 +43,12 @@ public class Assignment_4 {
         Bai6();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 7
+        System.out.println("*****************************************");
+        Bai7();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -208,5 +214,23 @@ public class Assignment_4 {
 
         System.out.println("The first max is " + firstMax);
         System.out.println("The second max is " + secondMax);
+    }
+
+    // fibonacci calculation
+    private static int fibonacci(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 1) {
+            return 1;
+        }
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    private static void Bai7() {
+        Scanner scanner7 = new Scanner(System.in);
+        int n = InputUtils.InputValidIntegerNumber(scanner7, "n");
+
+        System.out.println("Fibonacci number " + n + " is " + fibonacci(n));
     }
 }
