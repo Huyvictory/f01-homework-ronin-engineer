@@ -1,7 +1,9 @@
 import Assignment10.BankAccount;
+import Assignment10.Exceptions.EmptyListStudentsException;
 import Assignment10.Exceptions.InsufficientFundsException;
 import Assignment10.Exceptions.InvalidAgeException;
 import Assignment10.Exceptions.NegativeNumberException;
+import Assignment10.Student;
 import Utils.InputUtils;
 
 import java.io.BufferedReader;
@@ -81,6 +83,12 @@ public class Assignment_10 {
         // Bai 9
         System.out.println("*****************************************");
         Bai9();
+        System.out.println("*****************************************");
+        System.out.println();
+
+        // Bai 10
+        System.out.println("*****************************************");
+        Bai10();
         System.out.println("*****************************************");
         System.out.println();
     }
@@ -233,5 +241,53 @@ public class Assignment_10 {
         }
 
         System.out.println("Account balance after withdrawal: " + account.getBalance());
+    }
+
+    private static void Bai10() {
+        ArrayList<Student> students = new ArrayList<>();
+        Scanner scanner10 = new Scanner(System.in);
+
+        try {
+//            // Trigger NullPointerException when after adding null object to the list
+//            students.add(null);
+//            students.getFirst().getName().length();
+
+            System.out.println("Enter the number of students: ");
+            int numberOfStudents = InputUtils.InputValidIntegerNumber(scanner10, "number of students");
+
+            for (int i = 0; i < numberOfStudents; i++) {
+                System.out.println("Enter name and age of student " + (i + 1));
+                System.out.print("Enter name: ");
+                String name = scanner10.next();
+                int age = InputUtils.InputValidIntegerNumber(scanner10, "student age");
+                students.add(new Student(name, age));
+            }
+
+//            // Trigger IndexOutOfBoundsException through the use of the remove method
+//            students.remove(9999);
+
+//
+
+            // Full list of students
+            System.out.println("List Students: ");
+            for (Student student : students) {
+                student.ShowStudentDetails();
+            }
+
+            // valid remove method
+            students.removeFirst();
+
+            // Trigger EmptyListStudentsException
+//            students.clear();
+
+            if (students.isEmpty()) throw new EmptyListStudentsException("List is empty");
+
+            System.out.println("List Students after removing: ");
+            for (Student student : students) {
+                student.ShowStudentDetails();
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
