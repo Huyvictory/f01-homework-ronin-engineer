@@ -46,6 +46,13 @@ public class Assignment_2 {
         System.out.println("******************************************");
 
         System.out.println();
+
+        //Bai 7
+        System.out.println("******************************************");
+        Bai7();
+        System.out.println("******************************************");
+
+        System.out.println();
     }
 
     public static void Bai1() {
@@ -181,6 +188,42 @@ public class Assignment_2 {
         while (soNguyenDuong < 0 || soNguyenDuong > 1000);
 
         System.out.println("Sô la mã của số nguyên dương " + soNguyenDuong + " là " + chuyenVeLaMa(soNguyenDuong));
+    }
+
+    public static void Bai7() {
+        Scanner scanner7 = new Scanner(System.in);
+        System.out.println("Nhập số a");
+        double a = scanner7.nextDouble();
+        System.out.println("Nhập số b");
+        double b = scanner7.nextDouble();
+        System.out.println("Nhập số c");
+        double c = scanner7.nextDouble();
+
+        // Kiểm tra có phải là tam giác hay không
+        if (a + b > c && a + c > b && b + c > a) {
+            String loaiTamGiac;
+            // Xác định loại tam giác
+            if (a == b && b == c) {
+                loaiTamGiac = "Đều";
+            } else if (a == b || b == c || a == c) {
+                loaiTamGiac = "Cân";
+            } else {
+                loaiTamGiac = "Bình thường";
+            }
+
+            // Tính chu vi tam giác
+            double chuViTamGiac = a + b + c;
+
+            // Tính diện tích tam giác bằng công thức Heron
+            double s = chuViTamGiac / 2;
+            double dienTichTamGiac = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+
+            System.out.println("Tam giác " + loaiTamGiac);
+            System.out.println("Chu vi: " + chuViTamGiac);
+            System.out.println("Diện tích: " + dienTichTamGiac);
+        } else {
+            System.out.println("Không phải là tam giác.");
+        }
     }
 
 }
