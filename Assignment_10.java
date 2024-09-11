@@ -15,6 +15,12 @@ public class Assignment_10 {
         Bai1();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 2
+        System.out.println("*****************************************");
+        Bai2();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -28,6 +34,38 @@ public class Assignment_10 {
             System.out.println("Result: " + result);
         } catch (ArithmeticException e) {
             System.out.println("Error: Division by zero");
+        }
+    }
+
+    private static int InputValidIntegerNumber(Scanner scanner, String nameVariable) throws Exception {
+        int intVariable;
+        System.out.println("Please enter an valid integer: " + nameVariable);
+        do {
+            String userInput = scanner.next();
+
+            try {
+                intVariable = Integer.parseInt(userInput);
+                break;
+            } catch (Exception e) {
+                throw new Exception(userInput + " is an invalid input please enter a valid integer number");
+            }
+
+        } while (true);
+
+        System.out.println("You entered integer: " + intVariable);
+        return intVariable;
+    }
+
+    private static void Bai2() {
+        Scanner scanner2 = new Scanner(System.in);
+
+        while (true) {
+            try {
+                InputValidIntegerNumber(scanner2, "a");
+                break;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
