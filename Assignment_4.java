@@ -38,8 +38,11 @@ public class Assignment_4 {
         System.out.println("*****************************************");
         System.out.println();
 
-
-
+        // Bai 6
+        System.out.println("*****************************************");
+        Bai6();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -179,5 +182,31 @@ public class Assignment_4 {
         }
 
         System.out.println(inputString);
+    }
+
+    private static void Bai6() {
+        ArrayList<Integer> arrayNumbers = new ArrayList<>();
+        arrayNumbers.add(1);
+        arrayNumbers.add(2);
+        arrayNumbers.add(3);
+        arrayNumbers.add(5);
+        arrayNumbers.add(5);
+
+        int firstMax = 0;
+        for (int number : arrayNumbers) {
+            if (number > firstMax) {
+                firstMax = number;
+            }
+        }
+
+        int secondMax = 0;
+        for (int number : arrayNumbers) {
+            if (number > secondMax && number < firstMax) {
+                secondMax = number;
+            }
+        }
+
+        System.out.println("The first max is " + firstMax);
+        System.out.println("The second max is " + secondMax);
     }
 }
