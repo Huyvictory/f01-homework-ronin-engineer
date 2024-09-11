@@ -57,5 +57,12 @@ public class Assignment_1 {
 
         System.out.println();
 
+        // Bai 7
+        System.out.println("*****************************************");
+        System.out.println("Tốc độ trung bình: " + ((14.0 / 1.6) / ((45.0 / 60.0) + (30.0 / 3600))) + " dặm/giờ");
+        System.out.println("******************************************");
+
+        System.out.println();
+
     }
 }
