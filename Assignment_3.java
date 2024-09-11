@@ -14,6 +14,11 @@ public class Assignment_3 {
         System.out.println("******************************************");
         System.out.println();
 
+        // Bai 3
+        System.out.println("*****************************************");
+        Bai3();
+        System.out.println("******************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -63,4 +68,21 @@ public class Assignment_3 {
             System.out.println("The number is negative and odd");
         }
     }
+
+    private static void Bai3() {
+        Scanner scanner3 = new Scanner(System.in);
+        int a = InputValidIntegerNumber(scanner3, "a");
+        int b = InputValidIntegerNumber(scanner3, "b");
+
+        System.out.println("a: " + a);
+        System.out.println("b: " + b);
+
+        System.out.println("a + b: " + (a + b));
+        System.out.println("a - b: " + (a - b));
+        System.out.println("a * b: " + (a * b));
+        if (b != 0) {
+            System.out.println("a / b: " + (double) a / b);
+        }
+    }
+
 }
