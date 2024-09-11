@@ -49,6 +49,12 @@ public class Assignment_6 {
         Bai7();
         System.out.println("******************************************");
         System.out.println();
+
+        // Bai 8
+        System.out.println("*****************************************");
+        Bai8();
+        System.out.println("******************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -377,6 +383,53 @@ public class Assignment_6 {
 
         System.out.println("The bear wears pair shoes that are different color for " + numberOfDaysWearingPairDifferentColor + " days");
         System.out.println("The bear wears pair shoes that are same color for " + numberOfDaysWearingPairSameColor + " days");
+    }
+
+    private static void Bai8() {
+        Scanner scanner8 = new Scanner(System.in);
+
+
+        int[] arrayCrayonsBought = new int[]{
+                1, 7, 3, 3
+        };
+
+        // sort array using bubble sort
+        for (int i = 0; i < arrayCrayonsBought.length; i++) {
+            for (int j = 0; j < arrayCrayonsBought.length - 1; j++) {
+                if (arrayCrayonsBought[j] > arrayCrayonsBought[j + 1]) {
+                    int temp = arrayCrayonsBought[j];
+                    arrayCrayonsBought[j] = arrayCrayonsBought[j + 1];
+                    arrayCrayonsBought[j + 1] = temp;
+                }
+            }
+        }
+
+        // find occurrences of each crayon
+        HashMap<Integer, Integer> mapCrayons = new HashMap<>();
+        for (int i = 0; i < arrayCrayonsBought.length; i++) {
+            if (mapCrayons.containsKey(arrayCrayonsBought[i])) {
+                mapCrayons.put(arrayCrayonsBought[i], mapCrayons.get(arrayCrayonsBought[i]) + 1);
+            } else {
+                mapCrayons.put(arrayCrayonsBought[i], 1);
+            }
+        }
+
+        // Get the crayons that has the occurrences more than 1
+        ArrayList<Integer> arrayListDuplicatedCrayons = new ArrayList<>();
+
+        for (int crayon : mapCrayons.keySet()) {
+            if (mapCrayons.get(crayon) > 1) {
+                arrayListDuplicatedCrayons.add(mapCrayons.get(crayon));
+            }
+        }
+
+        // Find number of crayons that the mother has to buy again
+        int numberOfCrayonsToBuyAgain = 0;
+        for (int crayon : arrayListDuplicatedCrayons) {
+            numberOfCrayonsToBuyAgain += crayon - 1;
+        }
+
+        System.out.println("Number of crayons that the mother has to buy again: " + numberOfCrayonsToBuyAgain);
     }
 }
 
