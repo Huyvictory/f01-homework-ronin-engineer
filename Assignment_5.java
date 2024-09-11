@@ -51,6 +51,12 @@ public class Assignment_5 {
         Bai7();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 8
+        System.out.println("*****************************************");
+        Bai8();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -237,6 +243,99 @@ public class Assignment_5 {
             resultStringBuilder.append(" ");
             resultStringBuilder.append(lcm);
             results.add(resultStringBuilder.toString());
+        }
+
+        // Print results
+        System.out.println("Results:");
+        for (String result : results) {
+            System.out.println(result);
+        }
+    }
+
+    private static void Bai8() {
+        // Get number of tests
+        int numberOfTests = InputUtils.InputValidIntegerNumber(new Scanner(System.in), "number of tests");
+
+        // Create test cases
+        var testCases = new ArrayList<int[]>();
+        var results = new ArrayList<String>();
+
+        for (int i = 1; i <= numberOfTests; i++) {
+            System.out.println();
+            System.out.printf("Test case %d\n", i);
+            int n = InputUtils.InputValidIntegerNumber(new Scanner(System.in), "size of the array for test case " + i);
+            int[] arrayNumbers = new int[n];
+
+            for (int j = 0; j < n; j++) {
+                arrayNumbers[j] = InputUtils.InputValidIntegerNumber(new Scanner(System.in), "array number " + (j + 1));
+            }
+
+            testCases.add(arrayNumbers);
+        }
+
+        for (int[] array : testCases) {
+            System.out.println(Arrays.toString(array));
+        }
+
+        // Find the number that appear the most often with the least index
+        for (int[] arrayTestCase : testCases) {
+
+            // Create a hashmap to store the number and its occurrences along with the least index
+            HashMap<Integer, Object[]> occurrencesOfNumbers = new HashMap<>();
+
+            for (int i = 0; i < arrayTestCase.length; i++) {
+                if (!occurrencesOfNumbers.containsKey(arrayTestCase[i])) {
+                    occurrencesOfNumbers.put(arrayTestCase[i], new Object[]{1, i});
+                } else {
+                    Object[] numbers = occurrencesOfNumbers.get(arrayTestCase[i]);
+                    int occurrences = (int) numbers[0];
+                    int index = (int) numbers[1];
+
+                    occurrencesOfNumbers.put(arrayTestCase[i], new Object[]{occurrences + 1, index});
+                }
+            }
+
+            // Traverse the hashmap and find the number that appear the most often and add into a list
+            int maxOccurrences = 1;
+            ArrayList<Object[]> highestOccurrencesNumbersArray = new ArrayList<>();
+
+            for (HashMap.Entry<Integer, Object[]> entryHashMap : occurrencesOfNumbers.entrySet()) {
+                int number = entryHashMap.getKey();
+                int occurrences = (int) entryHashMap.getValue()[0];
+                int index = (int) entryHashMap.getValue()[1];
+
+                if (occurrences >= maxOccurrences) {
+                    maxOccurrences = occurrences;
+                    highestOccurrencesNumbersArray.add(new Object[]{occurrences, index, number});
+                }
+
+            }
+
+            // Find the number that appear the most often with the least index
+            int maxOccurrencesNumber = (int) highestOccurrencesNumbersArray.getFirst()[0];
+            int leastIndex = (int) highestOccurrencesNumbersArray.getFirst()[1];
+            int numberWithMaxOccurrences = (int) highestOccurrencesNumbersArray.getFirst()[2];
+
+            for (Object[] highestOccurrencesNumber : highestOccurrencesNumbersArray) {
+                int occurrences = (int) highestOccurrencesNumber[0];
+                int index = (int) highestOccurrencesNumber[1];
+                int number = (int) highestOccurrencesNumber[2];
+
+                if (occurrences == maxOccurrencesNumber && index < leastIndex) {
+                    leastIndex = index;
+                    numberWithMaxOccurrences = number;
+                } else if (occurrences > maxOccurrencesNumber) {
+                    maxOccurrencesNumber = occurrences;
+                    leastIndex = index;
+                    numberWithMaxOccurrences = number;
+                }
+            }
+
+            if (maxOccurrencesNumber > 1) {
+                results.add("Number " + numberWithMaxOccurrences + " index " + leastIndex);
+            } else {
+                results.add("NO");
+            }
         }
 
         // Print results
