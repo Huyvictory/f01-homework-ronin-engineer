@@ -21,6 +21,12 @@ public class Assignment_5 {
         System.out.printf("The founded index is %d\n", foundedIndex);
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 3
+        System.out.println("*****************************************");
+        Bai3();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -47,6 +53,26 @@ public class Assignment_5 {
         }
         return -1;
 
+    }
+
+    private static void Bai3() {
+        int[][] array2D = {
+                {1, 2},
+                {3, 4},
+                {5, 6}
+        };
+
+        int maxNumber = 0;
+
+        for (int[] subArray : array2D) {
+            for (int number : subArray) {
+                if (number > maxNumber) {
+                    maxNumber = number;
+                }
+            }
+        }
+
+        System.out.println("The max number in the matrix is " + maxNumber);
     }
 
 }
