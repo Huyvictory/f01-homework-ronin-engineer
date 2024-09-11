@@ -45,6 +45,12 @@ public class Assignment_5 {
         Bai6();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 7
+        System.out.println("*****************************************");
+        Bai7();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -179,6 +185,65 @@ public class Assignment_5 {
         }
 
         System.out.println("YES");
+    }
+
+    // Ước số chung lớn nhất
+    static int gcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        } else {
+            return gcd(b, Math.abs(a - b));
+        }
+    }
+
+    // Bội số chung nhỏ nhất
+    static int lcm(int a, int b) {
+        return (a * b) / gcd(a, b);
+    }
+
+    private static void Bai7() {
+
+        // Get number of tests
+        int numberOfTests = InputUtils.InputValidIntegerNumber(new Scanner(System.in), "number of tests");
+
+        var testCases = new ArrayList<String>();
+        var results = new ArrayList<String>();
+
+        // Create test cases
+        for (int i = 1; i <= numberOfTests; i++) {
+            StringBuilder stringBuilder = new StringBuilder();
+            System.out.println();
+            System.out.printf("Test case %d\n", i);
+            int a = InputUtils.InputValidIntegerNumber(new Scanner(System.in), "a");
+            int b = InputUtils.InputValidIntegerNumber(new Scanner(System.in), "b");
+            stringBuilder.append(a);
+            stringBuilder.append(" ");
+            stringBuilder.append(b);
+            testCases.add(stringBuilder.toString());
+        }
+
+        // Calculate gcd and lcm for every test case
+        for (String testCase : testCases) {
+            StringBuilder resultStringBuilder = new StringBuilder();
+
+            String[] numbersTestCase = testCase.split(" ");
+            int a = Integer.parseInt(numbersTestCase[0]);
+            int b = Integer.parseInt(numbersTestCase[1]);
+
+            int gcd = gcd(a, b);
+            int lcm = lcm(a, b);
+
+            resultStringBuilder.append(gcd);
+            resultStringBuilder.append(" ");
+            resultStringBuilder.append(lcm);
+            results.add(resultStringBuilder.toString());
+        }
+
+        // Print results
+        System.out.println("Results:");
+        for (String result : results) {
+            System.out.println(result);
+        }
     }
 
 }
