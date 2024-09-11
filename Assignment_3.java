@@ -19,6 +19,13 @@ public class Assignment_3 {
         Bai3();
         System.out.println("******************************************");
         System.out.println();
+
+        // Bai 4
+        System.out.println("*****************************************");
+        Bai4();
+        System.out.println("******************************************");
+        System.out.println();
+
     }
 
     private static void Bai1() {
@@ -82,6 +89,20 @@ public class Assignment_3 {
         System.out.println("a * b: " + (a * b));
         if (b != 0) {
             System.out.println("a / b: " + (double) a / b);
+        }
+    }
+
+    private static void Bai4() {
+        Scanner scanner4 = new Scanner(System.in);
+        int a = InputValidIntegerNumber(scanner4, "a");
+        int b = InputValidIntegerNumber(scanner4, "b");
+
+        if (a > b) {
+            System.out.println("a is greater than b");
+        } else if (a < b) {
+            System.out.println("a is less than b");
+        } else {
+            System.out.println("a is equal to b");
         }
     }
 
