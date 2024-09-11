@@ -1,1 +1,0 @@
-Sum of the numbers in the file is 55
