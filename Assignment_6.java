@@ -10,8 +10,14 @@ public class Assignment_6 {
         System.out.println("*****************************************");
         Bai1();
         System.out.println("*****************************************");
-
         System.out.println();
+
+        // Bai 2
+        System.out.println("*****************************************");
+        Bai2();
+        System.out.println("*****************************************");
+        System.out.println();
+
     }
 
     private static void Bai1() {
@@ -67,6 +73,57 @@ public class Assignment_6 {
         }
     }
 
+    private static void Bai2() {
+        int[] arrayNumbers = {9, 7, 12, 8, 6, 5};
+
+
+        // sort array using bubble sort
+        for (int i = 0; i < arrayNumbers.length; i++) {
+            for (int j = 0; j < arrayNumbers.length - 1; j++) {
+                if (arrayNumbers[j] > arrayNumbers[j + 1]) {
+                    int temp = arrayNumbers[j];
+                    arrayNumbers[j] = arrayNumbers[j + 1];
+                    arrayNumbers[j + 1] = temp;
+                }
+            }
+        }
+
+        int minNumber = arrayNumbers[0];
+        int secondMinNumber = 0;
+        int maxNumber = arrayNumbers[arrayNumbers.length - 1];
+        int secondMaxNumber = 0;
+
+        // find second min number
+        for (int i = 1; i < arrayNumbers.length; i++) {
+            if (arrayNumbers[i] > minNumber) {
+                secondMinNumber = arrayNumbers[i];
+                break;
+            }
+        }
+
+        // find second max number
+        for (int i = arrayNumbers.length - 2; i >= 0; i--) {
+            if (arrayNumbers[i] < maxNumber) {
+                secondMaxNumber = arrayNumbers[i];
+                break;
+            }
+        }
+
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(maxNumber);
+        arrayList.add(minNumber);
+        arrayList.add(secondMaxNumber);
+        arrayList.add(secondMinNumber);
+
+        // find numbers in array that are not in arrayList
+        for (int i = arrayNumbers.length - 1; i >= 0; i--) {
+            if (!arrayList.contains(arrayNumbers[i])) {
+                arrayList.add(arrayNumbers[i]);
+            }
+        }
+
+        System.out.println(Arrays.toString(arrayList.toArray()));
+    }
 
 }
 
