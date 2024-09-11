@@ -1,3 +1,4 @@
+import Assignment10.Exceptions.InvalidAgeException;
 import Utils.InputUtils;
 
 import java.io.BufferedReader;
@@ -31,6 +32,16 @@ public class Assignment_10 {
         // Bai 4
         System.out.println("*****************************************");
         Bai4();
+        System.out.println("*****************************************");
+        System.out.println();
+
+        //Bai 5
+        System.out.println("*****************************************");
+        try {
+            Bai5();
+        } catch (InvalidAgeException e) {
+            System.out.println(e.getMessage());
+        }
         System.out.println("*****************************************");
         System.out.println();
     }
@@ -129,5 +140,13 @@ public class Assignment_10 {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    private static void Bai5() throws InvalidAgeException {
+        Scanner scanner5 = new Scanner(System.in);
+        int age;
+        age = InputUtils.InputValidIntegerNumber(scanner5, "age");
+        if (age < 18) throw new InvalidAgeException();
+        System.out.printf("You are %d years old\n", age);
     }
 }
