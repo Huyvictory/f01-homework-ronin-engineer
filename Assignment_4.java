@@ -1,3 +1,5 @@
+import Utils.InputUtils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +18,12 @@ public class Assignment_4 {
         System.out.println("*****************************************");
         Bai2();
         System.out.println("*****************************************");
+        System.out.println();
 
+        // Bai 3
+        System.out.println("*****************************************");
+        Bai3();
+        System.out.println("*****************************************");
         System.out.println();
 
     }
@@ -64,5 +71,65 @@ public class Assignment_4 {
 
         System.out.println("The number of vowels is " + numberOfVowels);
         System.out.println("The number of consonants is " + numberOfConsonants);
+    }
+
+    private static void Bai3() {
+        Scanner scanner3 = new Scanner(System.in);
+
+        int n = InputUtils.InputValidIntegerNumber(scanner3, "n");
+
+        // Shape A
+        System.out.println("Shape A");
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
+        // Shape B
+        System.out.println("Shape B");
+        for (int i = n; i > 0; i--) {
+            for (int j = i; j > 0; j--) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
+        // Shape C
+        System.out.println("Shape C");
+        for (int i = n; i >= 1; i--) {
+            boolean printStar = false;
+            for (int j = 1; j <= n; j++) {
+                if (j == i) {
+                    printStar = true;
+                }
+                if (printStar) {
+                    System.out.print("* ");
+                } else {
+                    System.out.print("a ");
+                }
+            }
+            System.out.println();
+        }
+
+        // Shape D
+        System.out.println("Shape D");
+        for (int i = 1; i <= n; i++) {
+            boolean printStar = false;
+            for (int j = 1; j <= n; j++) {
+
+                if (j == i) {
+                    printStar = true;
+                }
+
+                if (printStar) {
+                    System.out.print("* ");
+                } else {
+                    System.out.print("a ");
+                }
+            }
+            System.out.println();
+        }
     }
 }
