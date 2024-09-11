@@ -26,6 +26,12 @@ public class Assignment_4 {
         System.out.println("*****************************************");
         System.out.println();
 
+        // Bai 4
+        System.out.println("*****************************************");
+        Bai4();
+        System.out.println("*****************************************");
+        System.out.println();
+
     }
 
     private static void Bai1() {
@@ -128,6 +134,15 @@ public class Assignment_4 {
                 } else {
                     System.out.print("a ");
                 }
+            }
+            System.out.println();
+        }
+    }
+
+    private static void Bai4() {
+        for (int i = 2; i <= 9; i++) {
+            for (int j = 1; j <= 10; j++) {
+                System.out.printf("%d : %d = %d\n", (i * j), i, ((i * j) / i));
             }
             System.out.println();
         }
