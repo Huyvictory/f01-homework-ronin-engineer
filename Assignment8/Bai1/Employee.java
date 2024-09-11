@@ -1,5 +1,7 @@
 package Assignment8.Bai1;
 
+import Assignment8.Bai1.Enums.Gender;
+
 public class Employee extends WorkPeople {
     private final String Job;
 

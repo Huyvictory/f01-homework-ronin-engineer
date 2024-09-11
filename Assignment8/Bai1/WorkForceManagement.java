@@ -1,6 +1,8 @@
 package Assignment8.Bai1;
 
 
+import Assignment8.Bai1.Enums.Gender;
+import Assignment8.Bai1.Enums.TypeOfWorkPeople;
 import Utils.InputUtils;
 
 import java.util.ArrayList;
@@ -9,9 +11,8 @@ import java.util.Scanner;
 public class WorkForceManagement {
     public ArrayList<WorkPeople> workForce = new ArrayList<>();
 
-    enum TypeOfWorkPeople {
-        WORKER, ENGINEER, EMPLOYEE
-    }
+
+
 
     public void CreateNewWorkPeople() {
         Scanner scanner = new Scanner(System.in);
@@ -38,7 +39,7 @@ public class WorkForceManagement {
 
 
         String typeOfWorkPeople;
-        WorkForceManagement.TypeOfWorkPeople typeOfWorkPeopleType;
+        TypeOfWorkPeople typeOfWorkPeopleType;
 
         while (true) {
             try {
@@ -46,7 +47,7 @@ public class WorkForceManagement {
                 System.out.println("Please enter the type of the new work people: ");
                 typeOfWorkPeople = scanner.next();
 
-                typeOfWorkPeopleType = WorkForceManagement.TypeOfWorkPeople.valueOf(typeOfWorkPeople);
+                typeOfWorkPeopleType = TypeOfWorkPeople.valueOf(typeOfWorkPeople);
                 break;
             } catch (Exception e) {
                 System.out.println("Wrong input, please try again");

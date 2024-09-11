@@ -1,5 +1,7 @@
 package Assignment8.Bai1;
 
+import Assignment8.Bai1.Enums.Gender;
+
 public class WorkPeople {
     private final String FullName;
     private final int Age;
