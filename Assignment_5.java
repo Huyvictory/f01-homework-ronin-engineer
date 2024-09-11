@@ -39,6 +39,12 @@ public class Assignment_5 {
         Bai5();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 6
+        System.out.println("*****************************************");
+        Bai6();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -154,6 +160,25 @@ public class Assignment_5 {
             System.out.println("File not found");
             System.exit(0);
         }
+    }
+
+    private static void Bai6() {
+        int[] arrayNumbers = {1, 2, 3, 2, 1};
+
+        int left = 0;
+        int right = arrayNumbers.length - 1;
+
+        while (left < right) {
+            if (arrayNumbers[left] != arrayNumbers[right]) {
+                System.out.println("NO");
+                return;
+            }
+
+            left++;
+            right--;
+        }
+
+        System.out.println("YES");
     }
 
 }
