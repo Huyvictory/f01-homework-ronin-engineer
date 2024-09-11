@@ -45,6 +45,12 @@ public class Assignment_11 {
         Bai5();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 6
+        System.out.println("*****************************************");
+        Bai6();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -224,6 +230,61 @@ public class Assignment_11 {
             System.out.println("True");
         else
             System.out.println("False");
+    }
+
+    private static String readFile(String fileName) throws IOException {
+        StringBuilder content = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+        }
+        return content.toString();
+    }
+
+    private static void Bai6() {
+        // Read HTML file
+        String currentUserProjectDirectory = System.getProperty("user.dir");
+        String filePath = currentUserProjectDirectory + "\\src\\html_Assignment11.html";
+
+        try {
+            String htmlContent = readFile(filePath);
+
+            Stack<String> stackOpenTags = new Stack<>();
+
+            // Pattern to get closing and tag name
+            Pattern tagPattern = Pattern.compile("<(/?)(\\w+)([^>]*)>");
+            Matcher matches = tagPattern.matcher(htmlContent);
+
+            String[] selfClosingTags = new String[]{"img", "br", "hr", "input", "link", "meta", "area", "base", "col", "command", "embed", "keygen", "param", "source", "track", "wbr"};
+
+            while (matches.find()) {
+                String isClosing = matches.group(1);
+                String tagName = matches.group(2).toLowerCase();
+
+                // Ignore self-closing tags
+                if (Arrays.asList(selfClosingTags).contains(tagName)) {
+                    continue;
+                }
+
+                // Open tag then push to stack
+                if (isClosing.isEmpty()) {
+                    stackOpenTags.push(tagName);
+                } else {
+                    // Meet close tag but no equivalent open tag or stack is empty then it's not a valid HTML file
+                    if (stackOpenTags.isEmpty() || !stackOpenTags.pop().equals(tagName)) {
+                        System.out.println("Not a valid HTML file");
+                        return;
+                    }
+                }
+            }
+
+            System.out.println("Valid HTML file");
+
+        } catch (Exception e) {
+            System.err.println("Error reading file: " + filePath);
+        }
     }
 
 }
