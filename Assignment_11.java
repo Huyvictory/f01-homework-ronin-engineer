@@ -69,6 +69,12 @@ public class Assignment_11 {
         Bai9();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 10
+        System.out.println("*****************************************");
+        Bai10();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -385,6 +391,25 @@ public class Assignment_11 {
         System.out.println("Size: " + list.size());
         System.out.println("Contains 2: " + list.contains(2));
         list.remove(2);
+        list.printList();
+        System.out.println("Size after removal: " + list.size());
+    }
+
+    private static void Bai10() {
+        DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+        list.printList();
+        System.out.println("Size: " + list.size());
+        System.out.println("Contains 2: " + list.contains(2));
+        list.remove(1);
+        list.remove(2);
+        list.remove(3);
+        list.remove(4);
+        list.remove(5);
         list.printList();
         System.out.println("Size after removal: " + list.size());
     }
