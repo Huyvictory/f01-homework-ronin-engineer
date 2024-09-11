@@ -65,6 +65,16 @@ public class Assignment_10 {
         Bai7();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 8
+        System.out.println("*****************************************");
+        try {
+            Bai8();
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -191,5 +201,14 @@ public class Assignment_10 {
         } catch (IOException e) {
             System.out.println("Error reading file: " + e.getMessage());
         }
+    }
+
+    private static void Bai8() throws IllegalArgumentException {
+        Scanner scanner8 = new Scanner(System.in);
+        int a = InputUtils.InputValidIntegerNumber(scanner8, "number");
+
+        if (a < 0) throw new IllegalArgumentException("Number should not be negative");
+
+        System.out.println("Square root of " + a + " is " + Math.sqrt(a));
     }
 }
