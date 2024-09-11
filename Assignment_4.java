@@ -55,6 +55,12 @@ public class Assignment_4 {
         Bai8();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 9
+        System.out.println("*****************************************");
+        Bai9();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -255,5 +261,16 @@ public class Assignment_4 {
                 System.out.printf("%d ", i);
             }
         }
+    }
+
+    private static void Bai9() {
+        double piNumber = 0.0;
+        int i = InputUtils.InputValidIntegerNumber(new Scanner(System.in), "i");
+
+        for (int j = 1; j <= i; j++) {
+            piNumber += Math.pow(-1, j + 1) / (double) (2 * j - 1);
+        }
+
+        System.out.println("The pi is " + piNumber * 4);
     }
 }
