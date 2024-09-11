@@ -67,6 +67,13 @@ public class Assignment_2 {
         System.out.println("******************************************");
 
         System.out.println();
+
+        // Bai 10
+        System.out.println("******************************************");
+        Bai10();
+        System.out.println("******************************************");
+
+        System.out.println();
     }
 
     public static void Bai1() {
@@ -293,6 +300,34 @@ public class Assignment_2 {
         } else {
             System.out.println("Phương trình không có nghiệm.");
         }
+    }
+
+    public static void Bai10() {
+        Scanner scanner10 = new Scanner(System.in);
+        System.out.print("Nhập số tiền cần rút: ");
+        double soTienCanRut = scanner10.nextDouble();
+
+        ArrayList<Integer> cacLoaiMenhGiaTien = new ArrayList<>(Arrays.asList(500, 200, 100, 50, 20, 10, 5, 2, 1));
+        HashMap<String, Integer> bangTien = new HashMap<>();
+
+        // Kiểm tra từ mệnh giá cao nhất đến mệnh giá thấp nhất để tối thiểu số tờ tiền cần rút
+        for (int i = 0; i < cacLoaiMenhGiaTien.size() - 1; i++) {
+            while (soTienCanRut >= cacLoaiMenhGiaTien.get(i)) {
+                soTienCanRut -= cacLoaiMenhGiaTien.get(i);
+                if (!bangTien.containsKey(String.valueOf(cacLoaiMenhGiaTien.get(i)))) {
+                    bangTien.put(String.valueOf(cacLoaiMenhGiaTien.get(i)), 1);
+                } else {
+                    bangTien.put(String.valueOf(cacLoaiMenhGiaTien.get(i)), bangTien.get(String.valueOf(cacLoaiMenhGiaTien.get(i))) + 1);
+                }
+            }
+        }
+
+        int tongSoToTien = 0;
+        for (String menhGiaTien : bangTien.keySet()) {
+            System.out.println("Mệnh giá: " + menhGiaTien + " Số tờ đã rút: " + bangTien.get(menhGiaTien));
+            tongSoToTien += bangTien.get(menhGiaTien);
+        }
+        System.out.println("Số tờ tiền cần rút: " + tongSoToTien);
     }
 
 }
