@@ -32,6 +32,14 @@ public class Assignment_4 {
         System.out.println("*****************************************");
         System.out.println();
 
+        // Bai 5
+        System.out.println("*****************************************");
+        Bai5();
+        System.out.println("*****************************************");
+        System.out.println();
+
+
+
     }
 
     private static void Bai1() {
@@ -146,5 +154,30 @@ public class Assignment_4 {
             }
             System.out.println();
         }
+    }
+
+    private static void Bai5() {
+        String inputString = "978013213079";
+        int totalDigit13 = 0;
+
+        for (int i = 0; i < inputString.length(); i++) {
+            char currentChar = inputString.charAt(i);
+
+            if (i % 2 == 0) {
+                totalDigit13 += Integer.parseInt(String.valueOf(currentChar));
+            } else {
+                totalDigit13 += Integer.parseInt(String.valueOf(currentChar)) * 3;
+            }
+        }
+
+        int checkSum = Math.abs(10 - totalDigit13 % 10);
+
+        if (checkSum == 10) {
+            inputString += '0';
+        } else {
+            inputString += checkSum;
+        }
+
+        System.out.println(inputString);
     }
 }
