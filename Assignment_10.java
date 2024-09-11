@@ -1,4 +1,5 @@
 import Assignment10.Exceptions.InvalidAgeException;
+import Assignment10.Exceptions.NegativeNumberException;
 import Utils.InputUtils;
 
 import java.io.BufferedReader;
@@ -11,36 +12,50 @@ import java.util.Scanner;
 
 public class Assignment_10 {
     public static void main(String[] args) {
-        // Bai 1
-        System.out.println("*****************************************");
-        Bai1();
-        System.out.println("*****************************************");
-        System.out.println();
+//        // Bai 1
+//        System.out.println("*****************************************");
+//        Bai1();
+//        System.out.println("*****************************************");
+//        System.out.println();
+//
+//        // Bai 2
+//        System.out.println("*****************************************");
+//        Bai2();
+//        System.out.println("*****************************************");
+//        System.out.println();
+//
+//        // Bai 3
+//        System.out.println("*****************************************");
+//        Bai3();
+//        System.out.println("*****************************************");
+//        System.out.println();
+//
+//        // Bai 4
+//        System.out.println("*****************************************");
+//        Bai4();
+//        System.out.println("*****************************************");
+//        System.out.println();
+//
+//        //Bai 5
+//        System.out.println("*****************************************");
+//        try {
+//            Bai5();
+//        } catch (InvalidAgeException e) {
+//            System.out.println(e.getMessage());
+//        }
+//        System.out.println("*****************************************");
+//        System.out.println();
 
-        // Bai 2
-        System.out.println("*****************************************");
-        Bai2();
-        System.out.println("*****************************************");
-        System.out.println();
-
-        // Bai 3
-        System.out.println("*****************************************");
-        Bai3();
-        System.out.println("*****************************************");
-        System.out.println();
-
-        // Bai 4
-        System.out.println("*****************************************");
-        Bai4();
-        System.out.println("*****************************************");
-        System.out.println();
-
-        //Bai 5
+        // Bai 6
         System.out.println("*****************************************");
         try {
-            Bai5();
-        } catch (InvalidAgeException e) {
-            System.out.println(e.getMessage());
+            Bai6();
+        } catch (NumberFormatException e) {
+            try {
+                throw new NegativeNumberException(e.getMessage());
+            } catch (NegativeNumberException ex) {
+                System.out.println(ex.getMessage());
+            }
         }
         System.out.println("*****************************************");
         System.out.println();
@@ -148,5 +163,13 @@ public class Assignment_10 {
         age = InputUtils.InputValidIntegerNumber(scanner5, "age");
         if (age < 18) throw new InvalidAgeException();
         System.out.printf("You are %d years old\n", age);
+    }
+
+    private static void Bai6() {
+        Scanner scanner6 = new Scanner(System.in);
+        int a;
+        a = InputUtils.InputValidIntegerNumber(scanner6, "number");
+
+        if (a < 0) throw new NumberFormatException("Number should not be negative");
     }
 }
