@@ -53,6 +53,13 @@ public class Assignment_2 {
         System.out.println("******************************************");
 
         System.out.println();
+
+        // Bai 8
+        System.out.println("******************************************");
+        Bai8();
+        System.out.println("******************************************");
+
+        System.out.println();
     }
 
     public static void Bai1() {
@@ -223,6 +230,32 @@ public class Assignment_2 {
             System.out.println("Diện tích: " + dienTichTamGiac);
         } else {
             System.out.println("Không phải là tam giác.");
+        }
+    }
+
+    public static void Bai8() {
+        Scanner scanner8 = new Scanner(System.in);
+
+        System.out.println("Nhập số kiểm tra tính hoàn hảo");
+        int kiemTra = scanner8.nextInt();
+
+        ArrayList<Integer> mangUocSo = new ArrayList<>();
+
+        for (int i = 1; i < kiemTra; i++) {
+            if (kiemTra % i == 0) {
+                mangUocSo.add(i);
+            }
+        }
+
+        int tongUocSo = 0;
+        for (int num : mangUocSo) {
+            tongUocSo += num;
+        }
+
+        if (kiemTra == tongUocSo) {
+            System.out.println("Số kiểm tra có tính hoàn hảo");
+        } else {
+            System.out.println("Số kiểm tra không có tính hoàn hảo");
         }
     }
 
