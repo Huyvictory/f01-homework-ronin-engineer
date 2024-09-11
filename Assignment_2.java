@@ -25,6 +25,13 @@ public class Assignment_2 {
         System.out.println("******************************************");
 
         System.out.println();
+
+        // Bai 4
+        System.out.println("******************************************");
+        Bai4();
+        System.out.println("******************************************");
+
+        System.out.println();
     }
 
     public static void Bai1() {
@@ -87,6 +94,22 @@ public class Assignment_2 {
         soPhutConLai %= soPhutTrongGio;
 
         System.out.printf("%d years, %d days, %d hours, %d minutes%n", soNam, soNgay, soGio, soPhutConLai);
+    }
+
+    public static void Bai4() {
+        Scanner scanner4 = new Scanner(System.in);
+        int n;
+        do {
+            System.out.println("Nhập n");
+            n = scanner4.nextInt();
+        } while (n < 0);
+
+
+        int ketQuaGiaiThua = 1;
+        for (int i = 1; i <= n; i++) {
+            ketQuaGiaiThua *= i;
+        }
+        System.out.println("Lũy thừa của số " + n + " là " + ketQuaGiaiThua);
     }
 
 }
