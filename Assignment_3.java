@@ -1,3 +1,5 @@
+import Utils.InputUtils;
+
 import java.util.Scanner;
 
 public class Assignment_3 {
@@ -47,29 +49,12 @@ public class Assignment_3 {
         System.out.println(stringVariable);
     }
 
-    public static int InputValidIntegerNumber(Scanner scanner, String nameVariable) {
-        int intVariable;
-        System.out.println("Enter an integer " + nameVariable);
-        do {
-            String userInput = scanner.next();
-
-            try {
-                intVariable = Integer.parseInt(userInput);
-                break;
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input please enter a valid integer number");
-            }
-
-        } while (true);
-
-        return intVariable;
-    }
 
     private static void Bai2() {
         int intVariable;
 
         Scanner scanner = new Scanner(System.in);
-        intVariable = InputValidIntegerNumber(scanner, "number");
+        intVariable = InputUtils.InputValidIntegerNumber(scanner, "number");
 
         System.out.println("You entered: " + intVariable);
 
@@ -92,8 +77,8 @@ public class Assignment_3 {
 
     private static void Bai3() {
         Scanner scanner3 = new Scanner(System.in);
-        int a = InputValidIntegerNumber(scanner3, "a");
-        int b = InputValidIntegerNumber(scanner3, "b");
+        int a = InputUtils.InputValidIntegerNumber(scanner3, "a");
+        int b = InputUtils.InputValidIntegerNumber(scanner3, "b");
 
         System.out.println("a: " + a);
         System.out.println("b: " + b);
@@ -108,8 +93,8 @@ public class Assignment_3 {
 
     private static void Bai4() {
         Scanner scanner4 = new Scanner(System.in);
-        int a = InputValidIntegerNumber(scanner4, "a");
-        int b = InputValidIntegerNumber(scanner4, "b");
+        int a = InputUtils.InputValidIntegerNumber(scanner4, "a");
+        int b = InputUtils.InputValidIntegerNumber(scanner4, "b");
 
         if (a > b) {
             System.out.println("a is greater than b");
@@ -122,17 +107,17 @@ public class Assignment_3 {
 
     private static void Bai5() {
         Scanner scanner5 = new Scanner(System.in);
-        int a = InputValidIntegerNumber(scanner5, "a");
-        int b = InputValidIntegerNumber(scanner5, "b");
+        int a = InputUtils.InputValidIntegerNumber(scanner5, "a");
+        int b = InputUtils.InputValidIntegerNumber(scanner5, "b");
 
         while (a < 0 || b < 0) {
             if (a < 0) {
                 System.out.println("You entered a negative number for a");
-                a = InputValidIntegerNumber(scanner5, "a");
+                a = InputUtils.InputValidIntegerNumber(scanner5, "a");
             }
             if (b < 0) {
                 System.out.println("You entered a negative number for b");
-                b = InputValidIntegerNumber(scanner5, "b");
+                b = InputUtils.InputValidIntegerNumber(scanner5, "b");
             }
         }
 
@@ -140,20 +125,6 @@ public class Assignment_3 {
         System.out.println("Area of a rectangle is " + (a * b));
     }
 
-    private static double InputValidDoubleNumber(Scanner scanner, String nameVariable) {
-        double doubleVariable;
-        System.out.println("Enter a double " + nameVariable);
-        do {
-            String userInput = scanner.next();
-            try {
-                doubleVariable = Double.parseDouble(userInput);
-                break;
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input please enter a valid double number");
-            }
-        } while (true);
-        return doubleVariable;
-    }
 
     private static boolean isValidTriangle(double a, double b, double c) {
         return a + b > c && a + c > b && b + c > a;
@@ -161,9 +132,9 @@ public class Assignment_3 {
 
     private static void Bai6() {
         Scanner scanner6 = new Scanner(System.in);
-        double a = InputValidDoubleNumber(scanner6, "a");
-        double b = InputValidDoubleNumber(scanner6, "b");
-        double c = InputValidDoubleNumber(scanner6, "c");
+        double a = InputUtils.InputValidDoubleNumber(scanner6, "a");
+        double b = InputUtils.InputValidDoubleNumber(scanner6, "b");
+        double c = InputUtils.InputValidDoubleNumber(scanner6, "c");
 
         if (isValidTriangle(a, b, c)) {
             System.out.println("YES");
