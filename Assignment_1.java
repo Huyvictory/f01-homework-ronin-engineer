@@ -83,5 +83,13 @@ public class Assignment_1 {
 
         System.out.println();
 
+        // Bai 10
+        System.out.println("*****************************************");
+
+        System.out.println("Giá trị của x: " + (((44.5 * 0.55) - (50.2 * 5.9)) / ((3.4 * 0.55) - (50.2 * 2.1))));
+        System.out.println("Giá trị của y: " + (((3.4 * 5.9) - (44.5 * 2.1)) / ((3.4 * 0.55) - (50.2 * 2.1))));
+
+        System.out.println("******************************************");
+
     }
 }
