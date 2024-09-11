@@ -2,29 +2,39 @@ import Assignment8.Bai1.WorkForceManagement;
 import Assignment8.Bai2.DocumentManagement;
 import Assignment8.Bai3.HomeUsage;
 import Assignment8.Bai3.ReceiptElectricity;
+import Assignment8.Bai4.Enums.Gender;
+import Assignment8.Bai4.FairStudent;
+import Assignment8.Bai4.GoodStudent;
 import Utils.InputUtils;
 
+import java.util.Date;
 import java.util.Scanner;
 
 public class Assignment_8 {
     public static void main(String[] args) {
-//        // Bai 1
-//        System.out.println("*****************************************");
-//        Bai1();
-//        System.out.println("*****************************************");
-//        System.out.println();
-//
-//        // Bai 2
-//        System.out.println("*****************************************");
-//        Bai2();
-//        System.out.println("*****************************************");
-//        System.out.println();
+        // Bai 1
+        System.out.println("*****************************************");
+        Bai1();
+        System.out.println("*****************************************");
+        System.out.println();
+
+        // Bai 2
+        System.out.println("*****************************************");
+        Bai2();
+        System.out.println("*****************************************");
+        System.out.println();
 
         // Bai 3
         System.out.println("*****************************************");
         Bai3();
         System.out.println("*****************************************");
         System.out.println();
+
+        //Bai 4
+        System.out.println("*****************************************");
+        Bai4();
+        System.out.println("*****************************************");
+        System.out.println("*****************************************");
     }
 
     private static void Bai1() {
@@ -112,5 +122,32 @@ public class Assignment_8 {
         receiptElectricity.getHomeUsage().PrintDetails();
 
         receiptElectricity.CalculateMoneySpent();
+    }
+
+    private static void Bai4() {
+        GoodStudent goodStudent = new GoodStudent("Good Student", new Date(2021, 1, 1), Gender.MALE, "123456789", "University 1", "Grade 1");
+        goodStudent.ShowMyInfo();
+
+        goodStudent.SetGPA();
+        goodStudent.SetBestRewardName();
+        goodStudent.getGPA();
+        goodStudent.getBestRewardName();
+
+        goodStudent.setGPA(6);
+        goodStudent.setBestRewardName("Best Reward Name 2");
+        goodStudent.getGPA();
+        goodStudent.getBestRewardName();
+
+        FairStudent fairStudent = new FairStudent("Fair Student", new Date(2021, 1, 1), Gender.MALE, "123456789", "University 1", "Grade 1");
+        fairStudent.ShowMyInfo();
+        fairStudent.SetEnglishScore();
+        fairStudent.SetEntryTestScore();
+        fairStudent.GetEnglishScore();
+        fairStudent.GetEntryTestScore();
+
+        fairStudent.setEnglishScore(8);
+        fairStudent.SetEntryTestScore(9);
+        fairStudent.GetEnglishScore();
+        fairStudent.GetEntryTestScore();
     }
 }
