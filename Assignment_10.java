@@ -1,3 +1,5 @@
+import Assignment10.BankAccount;
+import Assignment10.Exceptions.InsufficientFundsException;
 import Assignment10.Exceptions.InvalidAgeException;
 import Assignment10.Exceptions.NegativeNumberException;
 import Utils.InputUtils;
@@ -73,6 +75,12 @@ public class Assignment_10 {
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("*****************************************");
+        System.out.println();
+
+        // Bai 9
+        System.out.println("*****************************************");
+        Bai9();
         System.out.println("*****************************************");
         System.out.println();
     }
@@ -210,5 +218,20 @@ public class Assignment_10 {
         if (a < 0) throw new IllegalArgumentException("Number should not be negative");
 
         System.out.println("Square root of " + a + " is " + Math.sqrt(a));
+    }
+
+    private static void Bai9() {
+        BankAccount account = new BankAccount(1000);
+        System.out.println("Current account balance: " + account.getBalance());
+
+        // Withdraw 100 from the account after that we will get insufficient funds exception
+        try {
+            account.withdraw(100);
+            account.withdraw(1000);
+        } catch (InsufficientFundsException e) {
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println("Account balance after withdrawal: " + account.getBalance());
     }
 }
