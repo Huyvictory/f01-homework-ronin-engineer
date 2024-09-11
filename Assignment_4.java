@@ -49,6 +49,12 @@ public class Assignment_4 {
         Bai7();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 8
+        System.out.println("*****************************************");
+        Bai8();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -232,5 +238,22 @@ public class Assignment_4 {
         int n = InputUtils.InputValidIntegerNumber(scanner7, "n");
 
         System.out.println("Fibonacci number " + n + " is " + fibonacci(n));
+    }
+
+    // Check if a number is a perfect square number
+    private static boolean isPerfectSquareNumber(int number) {
+        return Math.sqrt(number) % 1 == 0;
+    }
+
+    private static void Bai8() {
+        Scanner scanner8 = new Scanner(System.in);
+        int n = InputUtils.InputValidIntegerNumber(scanner8, "n");
+
+        System.out.println("Perfect square numbers that are less than " + n + " are: ");
+        for (int i = 1; i < n; i++) {
+            if (isPerfectSquareNumber(i)) {
+                System.out.printf("%d ", i);
+            }
+        }
     }
 }
