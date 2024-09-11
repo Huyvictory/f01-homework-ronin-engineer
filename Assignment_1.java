@@ -20,5 +20,16 @@ public class Assignment_1 {
 
         System.out.println();
 
+        // Bai 3
+        System.out.println("*****************************************");
+        System.out.println(" a\ta^2\ta^3");
+        System.out.println(" " + 1 + "\t" + (int) Math.pow(1, 2) + "\t" + (int) Math.pow(1, 3));
+        System.out.println(" " + 2 + "\t" + (int) Math.pow(2, 2) + "\t" + (int) Math.pow(2, 3));
+        System.out.println(" " + 3 + "\t" + (int) Math.pow(3, 2) + "\t" + (int) Math.pow(3, 3));
+        System.out.println(" " + 4 + "\t" + (int) Math.pow(4, 2) + "\t" + (int) Math.pow(4, 3));
+        System.out.println("******************************************");
+
+        System.out.println();
+
     }
 }
