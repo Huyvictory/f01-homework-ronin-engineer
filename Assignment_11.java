@@ -33,6 +33,12 @@ public class Assignment_11 {
         Bai3();
         System.out.println("*****************************************");
         System.out.println();
+
+        //Bai 4
+        System.out.println("*****************************************");
+        Bai4();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -157,6 +163,25 @@ public class Assignment_11 {
         System.out.println(stackCustom.size());
         System.out.println(stackCustom.top());
         stackCustom.end();
+    }
+
+    private static void Bai4() {
+        QueueCustom queueCustom = new QueueCustom();
+
+        queueCustom.init();
+        System.out.printf("Is Queue empty: %s\n", queueCustom.isEmpty() == -1 ? "Yes" : "No");
+        queueCustom.enQueue(1);
+        queueCustom.enQueue(2);
+        queueCustom.enQueue(3);
+        queueCustom.enQueue(4);
+        queueCustom.enQueue(5);
+        queueCustom.enQueue(1000000002);
+        System.out.println("Size: " + queueCustom.size());
+        System.out.printf("Is Queue empty: %s\n", queueCustom.isEmpty() == -1 ? "Yes" : "No");
+        queueCustom.deQueue();
+        System.out.println(queueCustom.size());
+        queueCustom.peek();
+        queueCustom.tail();
     }
 
 }
