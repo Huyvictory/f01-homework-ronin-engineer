@@ -31,6 +31,13 @@ public class Assignment_6 {
         Bai4();
         System.out.println("*****************************************");
         System.out.println("*****************************************");
+
+        // Bai 5
+        System.out.println("*****************************************");
+        Bai5();
+        System.out.println("*****************************************");
+        System.out.println();
+
     }
 
     private static void Bai1() {
@@ -227,6 +234,61 @@ public class Assignment_6 {
         }
 
         System.out.println("-1");
+    }
+
+    private static void Bai5() {
+        Scanner scanner5 = new Scanner(System.in);
+        // Read input (N and the array of customer notes)
+        int n = InputUtils.InputValidIntegerNumber(scanner5, " n: ");
+
+        int[] customerNotes = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            customerNotes[i] = InputUtils.InputValidIntegerNumber(scanner5, "Enter note of customer " + (i + 1) + ": ");
+        }
+
+        // Change for 25k note
+        int change25 = 0;
+
+        // Change for 50k note
+        int change50 = 0;
+
+        for (int i = 0; i < n; i++) {
+            int note = customerNotes[i];
+
+            // Customer gave note exact for the ticket price
+            if (note == 25) {
+                change25++;
+            }
+
+            // Customer gave note that is double of the ticket price then give change for customer with a 25k note
+            else if (note == 50) {
+                if (change25 > 0) {
+                    change25--;
+                    change50++;
+                } else {
+                    System.out.println("NO");
+                    return;
+                }
+            }
+
+            // Customer gave note that is quadruple of the ticket price
+            else if (note == 100) {
+
+                // Give change back for customer with total of 75k
+                if (change50 > 0 && change25 > 0) {
+                    change50--;
+                    change25--;
+                } else if (change25 >= 3) {
+                    change25 -= 3;
+                } else {
+                    System.out.println("NO");
+                    return;
+                }
+            }
+        }
+
+        System.out.println("YES");
     }
 
 }
