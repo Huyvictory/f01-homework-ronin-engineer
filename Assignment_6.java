@@ -38,6 +38,12 @@ public class Assignment_6 {
         System.out.println("*****************************************");
         System.out.println();
 
+        // Bai 6
+        System.out.println("*****************************************");
+        Bai6();
+        System.out.println("*****************************************");
+        System.out.println();
+
     }
 
     private static void Bai1() {
@@ -289,6 +295,37 @@ public class Assignment_6 {
         }
 
         System.out.println("YES");
+    }
+
+    private static void Bai6() {
+        Scanner scanner6 = new Scanner(System.in);
+
+
+        // Input amount of height that snail can climb per day
+        int a = InputUtils.InputValidIntegerNumber(scanner6, "amount of height that snail can climb per day");
+
+        // Input amount of height that snail drops per day after a sleep night
+        int b = InputUtils.InputValidIntegerNumber(scanner6, "amount of height that snail drops per day after a sleep night");
+
+        // Input height of the pole that snail has to climb
+        int v = InputUtils.InputValidIntegerNumber(scanner6, "height of the pole");
+
+        int daysReachToTheTop = 1;
+        int heightClimbed = 0;
+
+        while (heightClimbed < v) {
+            heightClimbed += a;
+
+            // reach to the top then stop climbing
+            if (heightClimbed >= v) {
+                break;
+            }
+
+            daysReachToTheTop++;
+            heightClimbed -= b;
+        }
+
+        System.out.println("The snail climbed " + daysReachToTheTop + " days");
     }
 
 }
