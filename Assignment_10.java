@@ -27,6 +27,12 @@ public class Assignment_10 {
         Bai3();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 4
+        System.out.println("*****************************************");
+        Bai4();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -98,4 +104,30 @@ public class Assignment_10 {
         }
     }
 
+    private static void Bai4() {
+        int[] arrayInteger = new int[3];
+        Scanner scanner4 = new Scanner(System.in);
+
+        try {
+//            // Trigger array index out of bounds exception
+//            arrayInteger[3] = 10;
+
+            // Trigger input mismatch exception when input is not an integer
+            for (int i = 0; i < arrayInteger.length; i++) {
+                System.out.println("Enter an integer " + i);
+                arrayInteger[i] = scanner4.nextInt();
+            }
+
+            System.out.println(Arrays.toString(arrayInteger));
+
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Array index out of bounds");
+
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
