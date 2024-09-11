@@ -47,5 +47,15 @@ public class Assignment_1 {
 
         System.out.println();
 
+        // Bai 6
+        System.out.println("*****************************************");
+        System.out.println((9.5 * 4.5 - 2.5 * 3) / (45.5 - 35.5));
+        System.out.println("Sum of integers from 1 to 9: " + (1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9));
+        System.out.println(0.5 * 1000000 * (1000000 + 1));
+        System.out.println(4 * (1 - (1.0 / 3) + (1.0 / 5) - (1.0 / 7) + (1.0 / 9) - (1.0 / 11) + (1.0 / 13)));
+        System.out.println("******************************************");
+
+        System.out.println();
+
     }
 }
