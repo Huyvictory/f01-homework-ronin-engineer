@@ -57,6 +57,12 @@ public class Assignment_5 {
         Bai8();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 9
+        System.out.println("*****************************************");
+        Bai9();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -336,6 +342,48 @@ public class Assignment_5 {
             } else {
                 results.add("NO");
             }
+        }
+
+        // Print results
+        System.out.println("Results:");
+        for (String result : results) {
+            System.out.println(result);
+        }
+    }
+
+    private static void Bai9() {
+
+        // Get number of tests
+        int numberOfTests = InputUtils.InputValidIntegerNumber(new Scanner(System.in), "number of tests");
+
+        // Create test cases
+        var testCases = new ArrayList<Integer>();
+        var results = new ArrayList<String>();
+
+        for (int i = 1; i <= numberOfTests; i++) {
+            System.out.println();
+            System.out.printf("Test case %d\n", i);
+            int n = InputUtils.InputValidIntegerNumber(new Scanner(System.in), "integer n");
+            testCases.add(n);
+        }
+
+        for (int testCaseNumber : testCases) {
+
+            // If test case number is odd, then return 0
+            int numbersOfDivisorFor2 = 0;
+            if (testCaseNumber % 2 != 0) {
+                results.add("0");
+                continue;
+            }
+
+            // Else find divisors of test case number that is divisible by 2
+            for (int i = 1; i < testCaseNumber; i++) {
+                if (i % 2 == 0) {
+                    numbersOfDivisorFor2++;
+                }
+            }
+
+            results.add(numbersOfDivisorFor2 + "");
         }
 
         // Print results
