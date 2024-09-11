@@ -39,6 +39,12 @@ public class Assignment_11 {
         Bai4();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 5
+        System.out.println("*****************************************");
+        Bai5();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -182,6 +188,42 @@ public class Assignment_11 {
         System.out.println(queueCustom.size());
         queueCustom.peek();
         queueCustom.tail();
+    }
+
+    private static void Bai5() {
+        ArrayList<String> validInputs = new ArrayList<>();
+        validInputs.add("()");
+        validInputs.add("[]");
+        validInputs.add("{}");
+
+        String openSymbol = "({[";
+
+        Stack<Character> stackOpenSymbols = new Stack<>();
+        Stack<Character> stackCloseSymbols = new Stack<>();
+
+        String testCase = "[()]{}{[()()]()}";
+
+        for (char c : testCase.toCharArray()) {
+            if (openSymbol.indexOf(c) != -1) {
+                stackOpenSymbols.push(c);
+            } else {
+                stackCloseSymbols.push(c);
+            }
+
+            if (!stackOpenSymbols.isEmpty() && !stackCloseSymbols.isEmpty()) {
+                String pairPattern = new String(new char[]{stackOpenSymbols.pop(), stackCloseSymbols.pop()});
+
+                if (!validInputs.contains(pairPattern)) {
+                    System.out.println("False");
+                    return;
+                }
+            }
+        }
+
+        if (stackOpenSymbols.isEmpty() && stackCloseSymbols.isEmpty())
+            System.out.println("True");
+        else
+            System.out.println("False");
     }
 
 }
