@@ -21,6 +21,12 @@ public class Assignment_11 {
         Bai1();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 2
+        System.out.println("*****************************************");
+        Bai2();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -76,5 +82,56 @@ public class Assignment_11 {
         System.out.println("Pascal triangle: " + sb);
     }
 
+    private static void StringArrayPlusOne(int[] number) {
+        String stringBuilderResult = getStringFromArrayNumbers(number);
+        int[] arrayResult = new int[stringBuilderResult.length()];
+
+        for (int i = 0; i < arrayResult.length; i++) {
+            try {
+                arrayResult[i] = Integer.parseInt(String.valueOf(stringBuilderResult.charAt(i)));
+            } catch (Exception e) {
+                System.err.println("Error parsing string to integer: " + arrayResult[i]);
+            }
+        }
+
+        System.out.println(Arrays.toString(arrayResult));
+    }
+
+    private static String getStringFromArrayNumbers(int[] number) {
+        StringBuilder stringInput = new StringBuilder();
+        for (int j : number) {
+            stringInput.append(j);
+        }
+
+        var numberInputFromArray = Integer.parseInt(stringInput.toString()) + 1;
+
+        StringBuilder sbResult = new StringBuilder();
+
+        String stringResult = String.valueOf(numberInputFromArray);
+
+        // Find the first non-zero digit
+        for (int i = 0; i < stringResult.length(); i++) {
+            if (stringResult.charAt(i) != '0') {
+                sbResult.append(stringResult.substring(i));
+                break;
+            }
+        }
+
+        return sbResult.toString();
+    }
+
+    private static void Bai2() {
+        int[] testCase1 = {0, 1, 2, 3};
+        StringArrayPlusOne(testCase1);
+
+        int[] testCase2 = {4, 3, 2, 1};
+        StringArrayPlusOne(testCase2);
+
+        int[] testCase3 = {9};
+        StringArrayPlusOne(testCase3);
+
+        int[] testCase4 = {9, 9};
+        StringArrayPlusOne(testCase4);
+    }
 
 }
