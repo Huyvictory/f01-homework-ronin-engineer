@@ -18,6 +18,11 @@ public class Assignment_6 {
         System.out.println("*****************************************");
         System.out.println();
 
+        // Bai 3
+        System.out.println("*****************************************");
+        Bai3();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -123,6 +128,44 @@ public class Assignment_6 {
         }
 
         System.out.println(Arrays.toString(arrayList.toArray()));
+    }
+
+    private static void Bai3() {
+        ArrayList<Integer> arrayList1 = new ArrayList<>();
+        arrayList1.add(1);
+        arrayList1.add(2);
+        arrayList1.add(3);
+        arrayList1.add(4);
+        arrayList1.add(5);
+
+        ArrayList<Integer> arrayList2 = new ArrayList<>();
+        arrayList2.add(1);
+        arrayList2.add(2);
+        arrayList2.add(3);
+        arrayList2.add(4);
+        arrayList2.add(5);
+
+        ArrayList<Integer> mergedList = new ArrayList<>(arrayList1);
+        mergedList.addAll(arrayList2);
+
+        System.out.println(mergedList);
+
+        // sort merged list using selection sort
+        for (int i = 0; i < mergedList.size() - 1; i++) {
+            int minIndex = i;
+
+            for (int j = i + 1; j < mergedList.size(); j++) {
+                if (mergedList.get(j) < mergedList.get(minIndex)) {
+                    minIndex = j;
+                }
+            }
+
+            int temp = mergedList.get(i);
+            mergedList.set(i, mergedList.get(minIndex));
+            mergedList.set(minIndex, temp);
+        }
+
+        System.out.println(mergedList);
     }
 
 }
