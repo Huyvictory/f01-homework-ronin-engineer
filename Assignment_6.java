@@ -44,6 +44,11 @@ public class Assignment_6 {
         System.out.println("*****************************************");
         System.out.println();
 
+        // Bai 7
+        System.out.println("*****************************************");
+        Bai7();
+        System.out.println("******************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -328,5 +333,50 @@ public class Assignment_6 {
         System.out.println("The snail climbed " + daysReachToTheTop + " days");
     }
 
+    private static void Bai7() {
+        Scanner scanner7 = new Scanner(System.in);
+
+        // Input numbers of red shoe
+        int redShoe = InputUtils.InputValidIntegerNumber(scanner7, "red shoe");
+
+        // Input numbers of blue shoe
+        int blueShoe = InputUtils.InputValidIntegerNumber(scanner7, "blue shoe");
+
+        int numberOfDaysWearingPairDifferentColor = 0;
+        int numberOfDaysWearingPairSameColor = 0;
+
+        // Find the number of days that the bear wears pair shoes that are different color
+        while (redShoe != 0 && blueShoe != 0) {
+
+            // Every day the pair shoes wears needs to be different color
+            redShoe--;
+            blueShoe--;
+            numberOfDaysWearingPairDifferentColor++;
+        }
+
+        // Find the number of days that the bear wears pair shoes that are same color
+        while (redShoe != 0) {
+            // Every day the pair shoes wears needs to be same color
+            if (redShoe >= 2) {
+                redShoe -= 2;
+                numberOfDaysWearingPairSameColor++;
+            } else {
+                break;
+            }
+        }
+
+        while (blueShoe != 0) {
+            // Every day the pair shoes wears needs to be same color
+            if (blueShoe >= 2) {
+                blueShoe -= 2;
+                numberOfDaysWearingPairSameColor++;
+            } else {
+                break;
+            }
+        }
+
+        System.out.println("The bear wears pair shoes that are different color for " + numberOfDaysWearingPairDifferentColor + " days");
+        System.out.println("The bear wears pair shoes that are same color for " + numberOfDaysWearingPairSameColor + " days");
+    }
 }
 
