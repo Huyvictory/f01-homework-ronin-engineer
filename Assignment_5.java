@@ -33,6 +33,12 @@ public class Assignment_5 {
         Bai4();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 5
+        System.out.println("*****************************************");
+        Bai5();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -115,6 +121,38 @@ public class Assignment_5 {
             System.out.println("Elements extracted to " + filePath);
         } catch (IOException e) {
             System.err.println("Error writing to file: " + e.getMessage());
+        }
+    }
+
+    private static void OutputFile(String filePath, String content) {
+        try (PrintWriter writer = new PrintWriter(filePath)) {
+            writer.write(content);
+            System.out.println("Result extracted to " + filePath);
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
+    }
+
+    private static void Bai5() {
+        String currentUserProjectDirectory = System.getProperty("user.dir");
+        String filePath = currentUserProjectDirectory + "\\src\\numbers.txt";
+
+        try {
+            Scanner scanner5 = new Scanner(new File(filePath));
+            int sum = 0;
+
+            // Check for data in the file and read, sum it
+            while (scanner5.hasNext()) {
+
+                sum += Integer.parseInt(scanner5.next());
+            }
+
+            String filePathResult = currentUserProjectDirectory + "\\src\\result.txt";
+            OutputFile(filePathResult, "Sum of the numbers in the file is " + sum);
+
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+            System.exit(0);
         }
     }
 
