@@ -63,6 +63,12 @@ public class Assignment_11 {
         Bai8();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 9
+        System.out.println("*****************************************");
+        Bai9();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -368,5 +374,18 @@ public class Assignment_11 {
 
         String testCase4 = "4 + (6 * (5 - a)";
         System.out.println(isValidMathExpression(testCase4) ? "Valid" : "Invalid");
+    }
+
+    private static void Bai9() {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.printList();
+        System.out.println("Size: " + list.size());
+        System.out.println("Contains 2: " + list.contains(2));
+        list.remove(2);
+        list.printList();
+        System.out.println("Size after removal: " + list.size());
     }
 }
