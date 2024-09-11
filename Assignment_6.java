@@ -1,4 +1,6 @@
 
+import Utils.InputUtils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -23,6 +25,12 @@ public class Assignment_6 {
         Bai3();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 4
+        System.out.println("*****************************************");
+        Bai4();
+        System.out.println("*****************************************");
+        System.out.println("*****************************************");
     }
 
     private static void Bai1() {
@@ -166,6 +174,59 @@ public class Assignment_6 {
         }
 
         System.out.println(mergedList);
+    }
+
+    private static void Bai4() {
+        Scanner scanner4 = new Scanner(System.in);
+
+        int n = InputUtils.InputValidIntegerNumber(scanner4, " n: ");
+
+        int arrayNumbers[] = new int[n];
+        for (int i = 0; i < n; i++) {
+
+            arrayNumbers[i] = InputUtils.InputValidIntegerNumber(scanner4, "Enter valid integer number " + (i + 1) + ": ");
+        }
+
+        int k = InputUtils.InputValidIntegerNumber(scanner4, "Enter valid integer number k: ");
+
+        // sort array using bubble sort
+        for (int i = 0; i < arrayNumbers.length; i++) {
+            for (int j = 0; j < arrayNumbers.length - 1; j++) {
+                if (arrayNumbers[j] > arrayNumbers[j + 1]) {
+                    int temp = arrayNumbers[j];
+                    arrayNumbers[j] = arrayNumbers[j + 1];
+                    arrayNumbers[j + 1] = temp;
+                }
+            }
+        }
+
+        System.out.println(Arrays.toString(arrayNumbers));
+
+        int count = 0;
+
+        //Element at k element
+        int elementAtK = arrayNumbers[k - 1];
+
+        // find duplicate of element k and update its index
+        for (int i = k; i < arrayNumbers.length; i++) {
+            if (arrayNumbers[i] == elementAtK) {
+                elementAtK = k;
+                break;
+            }
+        }
+
+        for (int i = 0; i < arrayNumbers.length; i++) {
+            if (arrayNumbers[i] <= elementAtK) {
+                count++;
+            }
+
+            if (count == k) {
+                System.out.println(arrayNumbers[i]);
+                return;
+            }
+        }
+
+        System.out.println("-1");
     }
 
 }
