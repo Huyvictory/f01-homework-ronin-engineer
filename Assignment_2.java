@@ -32,6 +32,13 @@ public class Assignment_2 {
         System.out.println("******************************************");
 
         System.out.println();
+
+        // Bai 5
+        System.out.println("******************************************");
+        Bai5();
+        System.out.println("******************************************");
+
+        System.out.println();
     }
 
     public static void Bai1() {
@@ -110,6 +117,35 @@ public class Assignment_2 {
             ketQuaGiaiThua *= i;
         }
         System.out.println("Lũy thừa của số " + n + " là " + ketQuaGiaiThua);
+    }
+
+    public static void Bai5() {
+        Scanner scanner5 = new Scanner(System.in);
+        int soThapPhan;
+
+        System.out.println("Nhập số thập phân thuộc cơ số 10");
+
+        soThapPhan = scanner5.nextInt();
+
+
+        StringBuilder maNhiPhan = new StringBuilder();
+        if (soThapPhan == 0) maNhiPhan.append("0");
+        while (soThapPhan > 0) {
+            maNhiPhan.insert(0, soThapPhan % 2);
+            soThapPhan /= 2;
+        }
+
+        System.out.println("Hệ nhị phân: " + maNhiPhan);
+
+        int soThapPhanTuMaNhiPhan = 0;
+        int length = maNhiPhan.length();
+        for (int i = length - 1; i >= 0; i--) {
+            if (maNhiPhan.charAt(i) == '1') {
+                soThapPhanTuMaNhiPhan += (int) Math.pow(2, length - i - 1);
+            }
+        }
+
+        System.out.println("Số thập phân: " + soThapPhanTuMaNhiPhan);
     }
 
 }
