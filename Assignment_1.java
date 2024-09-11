@@ -39,5 +39,13 @@ public class Assignment_1 {
 
         System.out.println();
 
+        // Bai 5
+        System.out.println("*****************************************");
+        System.out.println("Chu vi hinh chu nhat co chieu dai 4.5 cm và chieu rong 7.9 cm la " + 2 * (4.5 + 7.9) + " cm");
+        System.out.println("Dien tich hinh chu nhat co chieu dai 4.5 cm và chieu rong 7.9 cm la " + 4.5 * 7.9 + " cm²");
+        System.out.println("******************************************");
+
+        System.out.println();
+
     }
 }
