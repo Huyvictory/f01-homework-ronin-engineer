@@ -51,6 +51,12 @@ public class Assignment_11 {
         Bai6();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 7
+        System.out.println("*****************************************");
+        Bai7();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -287,4 +293,32 @@ public class Assignment_11 {
         }
     }
 
+    public static String decimalToBinaryStack(int decimal) {
+        if (decimal == 0) {
+            return "0";
+        }
+
+        Stack<Integer> stackRemainder = new Stack<>();
+
+        while (decimal > 0) {
+            int remainder = decimal % 2;
+            stackRemainder.push(remainder);
+            decimal /= 2;
+        }
+
+        StringBuilder binary = new StringBuilder();
+        while (!stackRemainder.isEmpty()) {
+            binary.append(stackRemainder.pop());
+        }
+
+        return binary.toString();
+    }
+
+    private static void Bai7() {
+        int[] testNumbers = {0, 1, 2, 5, 10, 15, 20, 50, 100};
+
+        for (int num : testNumbers) {
+            System.out.println(num + " in binary: " + decimalToBinaryStack(num));
+        }
+    }
 }
