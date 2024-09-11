@@ -18,6 +18,13 @@ public class Assignment_2 {
         System.out.println("******************************************");
 
         System.out.println();
+
+        // Bai 3
+        System.out.println("******************************************");
+        Bai3();
+        System.out.println("******************************************");
+
+        System.out.println();
     }
 
     public static void Bai1() {
@@ -55,6 +62,31 @@ public class Assignment_2 {
         double temperature = scanner2.nextDouble();
 
         System.out.println("Nhiệt đột đả chuyển đổi từ " + type.toUpperCase() + " sang" + (type.equalsIgnoreCase("F") ? " C " : " F ") + ": " + ChuyenDoNhietDo(type, temperature));
+    }
+
+    public static void Bai3() {
+        Scanner scanner3 = new Scanner(System.in);
+        int tongPhut;
+        do {
+            System.out.println("Nhập số phút");
+            tongPhut = scanner3.nextInt();
+        } while (tongPhut < 0);
+
+        int soPhutTrongNam = 60 * 24 * 365;
+        int soPhutTrongNgay = 60 * 24;
+        int soPhutTrongGio = 60;
+        int soPhutConLai = 0;
+
+        int soNam = tongPhut / soPhutTrongNam;
+        soPhutConLai = tongPhut % soPhutTrongNam;
+
+        int soNgay = soPhutConLai / soPhutTrongNgay;
+        soPhutConLai %= soPhutTrongNgay;
+
+        int soGio = soPhutConLai / soPhutTrongGio;
+        soPhutConLai %= soPhutTrongGio;
+
+        System.out.printf("%d years, %d days, %d hours, %d minutes%n", soNam, soNgay, soGio, soPhutConLai);
     }
 
 }
