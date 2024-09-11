@@ -61,6 +61,12 @@ public class Assignment_4 {
         Bai9();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 10
+        System.out.println("*****************************************");
+        Bai10();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -272,5 +278,29 @@ public class Assignment_4 {
         }
 
         System.out.println("The pi is " + piNumber * 4);
+    }
+
+    private static void Bai10() {
+        String inputString = "ab@#AB69C!}+21";
+
+        StringBuilder stringNumber = new StringBuilder();
+        StringBuilder stringLetter = new StringBuilder();
+        StringBuilder stringSymbol = new StringBuilder();
+
+        for (int i = 0; i < inputString.length(); i++) {
+            char currentChar = inputString.charAt(i);
+
+            if (Character.isDigit(currentChar)) {
+                stringNumber.append(currentChar);
+            } else if (Character.isLetter(currentChar)) {
+                stringLetter.append(currentChar);
+            } else {
+                stringSymbol.append(currentChar);
+            }
+        }
+
+        System.out.println("The string number is " + stringNumber);
+        System.out.println("The string letter is " + stringLetter);
+        System.out.println("The string symbol is " + stringSymbol);
     }
 }
