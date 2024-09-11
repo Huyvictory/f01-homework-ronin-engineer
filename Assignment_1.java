@@ -64,5 +64,12 @@ public class Assignment_1 {
 
         System.out.println();
 
+        // Bai 8
+        System.out.println("*****************************************");
+        System.out.println("Tốc độ trung bình: " + ((1.6 * 24) / (1 + (40.0 / 60.0) + (35.0 / 3600))) + " km/giờ");
+        System.out.println("******************************************");
+
+        System.out.println();
+
     }
 }
