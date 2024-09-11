@@ -26,6 +26,13 @@ public class Assignment_3 {
         System.out.println("******************************************");
         System.out.println();
 
+        // Bai 5
+        System.out.println("*****************************************");
+        Bai5();
+        System.out.println("******************************************");
+
+        System.out.println();
+
     }
 
     private static void Bai1() {
@@ -104,6 +111,26 @@ public class Assignment_3 {
         } else {
             System.out.println("a is equal to b");
         }
+    }
+
+    private static void Bai5() {
+        Scanner scanner5 = new Scanner(System.in);
+        int a = InputValidIntegerNumber(scanner5, "a");
+        int b = InputValidIntegerNumber(scanner5, "b");
+
+        while (a < 0 || b < 0) {
+            if (a < 0) {
+                System.out.println("You entered a negative number for a");
+                a = InputValidIntegerNumber(scanner5, "a");
+            }
+            if (b < 0) {
+                System.out.println("You entered a negative number for b");
+                b = InputValidIntegerNumber(scanner5, "b");
+            }
+        }
+
+        System.out.println("Circumference of a rectangle is " + ((a + b) * 2));
+        System.out.println("Area of a rectangle is " + (a * b));
     }
 
 }
