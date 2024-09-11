@@ -60,6 +60,13 @@ public class Assignment_2 {
         System.out.println("******************************************");
 
         System.out.println();
+
+        // Bai 9
+        System.out.println("******************************************");
+        Bai9();
+        System.out.println("******************************************");
+
+        System.out.println();
     }
 
     public static void Bai1() {
@@ -256,6 +263,35 @@ public class Assignment_2 {
             System.out.println("Số kiểm tra có tính hoàn hảo");
         } else {
             System.out.println("Số kiểm tra không có tính hoàn hảo");
+        }
+    }
+
+    public static void Bai9() {
+        Scanner scanner9 = new Scanner(System.in);
+
+        // Nhập 3 số a, b, c
+        System.out.print("Nhập số a: ");
+        double a = scanner9.nextDouble();
+        System.out.print("Nhập số b: ");
+        double b = scanner9.nextDouble();
+        System.out.print("Nhập số c: ");
+        double c = scanner9.nextDouble();
+
+        // Tính delta
+        double deltaValue = b * b - 4 * a * c;
+
+        // Tìm nghiệm dựa theo giá trị delta
+        if (deltaValue > 0) {
+            // 2 nghiệm riêng biệt
+            double x1 = (-b + Math.sqrt(deltaValue)) / (2 * a);
+            double x2 = (-b - Math.sqrt(deltaValue)) / (2 * a);
+            System.out.println("Phương trình có 2 nghiệm riêng biệt: " + x1 + " và " + x2);
+        } else if (deltaValue == 0) {
+            // Một nghiệm chung
+            double x = -b / (2 * a);
+            System.out.println("Phương trình có một nghiệm chung: " + x);
+        } else {
+            System.out.println("Phương trình không có nghiệm.");
         }
     }
 
