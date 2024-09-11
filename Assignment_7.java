@@ -1,5 +1,6 @@
 import Assignment7.Circle;
 import Assignment7.Fraction;
+import Assignment7.Student;
 
 public class Assignment_7 {
 
@@ -13,6 +14,12 @@ public class Assignment_7 {
         // Bai 2
         System.out.println("*****************************************");
         Bai2();
+        System.out.println("*****************************************");
+        System.out.println();
+
+        // Bai 3
+        System.out.println("*****************************************");
+        Bai3();
         System.out.println("*****************************************");
         System.out.println();
     }
@@ -44,5 +51,23 @@ public class Assignment_7 {
         fraction1.subtractFraction(fraction2);
         fraction1.multiplyFraction(fraction2);
         fraction1.divideFraction(fraction2);
+    }
+
+    private static void Bai3() {
+        // Default student constructing without parameters
+        Student student1 = new Student();
+        student1.Study();
+        student1.DoHomework();
+        student1.PayTuitionFee();
+        student1.Test();
+
+        System.out.println();
+
+        // Student constructing with parameters
+        Student student2 = new Student("ABC", "Address", "test@gmail.com", "1234567778899", "B22DCCN175");
+        student2.Study();
+        student2.DoHomework();
+        student2.PayTuitionFee();
+        student2.Test();
     }
 }
