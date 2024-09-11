@@ -27,6 +27,12 @@ public class Assignment_11 {
         Bai2();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 3
+        System.out.println("*****************************************");
+        Bai3();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -132,6 +138,25 @@ public class Assignment_11 {
 
         int[] testCase4 = {9, 9};
         StringArrayPlusOne(testCase4);
+    }
+
+    private static void Bai3() {
+        StackCustom stackCustom = new StackCustom();
+
+        stackCustom.init();
+        stackCustom.push(1);
+        System.out.println(stackCustom.isEmpty());
+        stackCustom.push(2);
+        stackCustom.push(3);
+        stackCustom.push(4);
+        stackCustom.push(5);
+        stackCustom.push(1000000002);
+        System.out.println(stackCustom.size());
+        System.out.println(stackCustom.top());
+        System.out.println(stackCustom.pop());
+        System.out.println(stackCustom.size());
+        System.out.println(stackCustom.top());
+        stackCustom.end();
     }
 
 }
