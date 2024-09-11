@@ -31,5 +31,13 @@ public class Assignment_1 {
 
         System.out.println();
 
+        // Bai 4
+        System.out.println("*****************************************");
+        System.out.println("Chu vi hinh tron co ban kinh 5.5cm la " + 2 * Math.PI * 5.5 + " cm");
+        System.out.println(("Dien tich hinh tron co ban kinh 5.5cm la " + Math.PI * Math.pow(5.5, 2)) + " cm²");
+        System.out.println("******************************************");
+
+        System.out.println();
+
     }
 }
