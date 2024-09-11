@@ -1,20 +1,28 @@
 import Assignment8.Bai1.WorkForceManagement;
 import Assignment8.Bai2.DocumentManagement;
+import Assignment8.Bai3.HomeUsage;
+import Assignment8.Bai3.ReceiptElectricity;
 import Utils.InputUtils;
 
 import java.util.Scanner;
 
 public class Assignment_8 {
     public static void main(String[] args) {
-        // Bai 1
-        System.out.println("*****************************************");
-        Bai1();
-        System.out.println("*****************************************");
-        System.out.println();
+//        // Bai 1
+//        System.out.println("*****************************************");
+//        Bai1();
+//        System.out.println("*****************************************");
+//        System.out.println();
+//
+//        // Bai 2
+//        System.out.println("*****************************************");
+//        Bai2();
+//        System.out.println("*****************************************");
+//        System.out.println();
 
-        // Bai 2
+        // Bai 3
         System.out.println("*****************************************");
-        Bai2();
+        Bai3();
         System.out.println("*****************************************");
         System.out.println();
     }
@@ -80,5 +88,29 @@ public class Assignment_8 {
                     break;
             }
         }
+    }
+
+    private static void Bai3() {
+        System.out.println("Create a new HomeUsage object");
+        HomeUsage homeUsage = new HomeUsage("Home 1", 1, "123456789");
+        homeUsage.PrintDetails();
+
+        // Update the HomeUsage object
+        System.out.println("Update the HomeUsage object");
+        homeUsage.UpdateHomeUsage("Home 2", 2, "987654321");
+        homeUsage.PrintDetails();
+
+        // Delete the HomeUsage object
+        System.out.println("Delete the HomeUsage object");
+        homeUsage.DeleteHomeUsage();
+        homeUsage.PrintDetails();
+
+        HomeUsage homeUsageForReceipt = new HomeUsage("Home 3", 3, "12345678910");
+
+        System.out.println("Create a new ReceiptElectricity object");
+        ReceiptElectricity receiptElectricity = new ReceiptElectricity(homeUsageForReceipt, 100, 200);
+        receiptElectricity.getHomeUsage().PrintDetails();
+
+        receiptElectricity.CalculateMoneySpent();
     }
 }
