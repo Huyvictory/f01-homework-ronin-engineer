@@ -12,39 +12,39 @@ import java.util.Scanner;
 
 public class Assignment_10 {
     public static void main(String[] args) {
-//        // Bai 1
-//        System.out.println("*****************************************");
-//        Bai1();
-//        System.out.println("*****************************************");
-//        System.out.println();
-//
-//        // Bai 2
-//        System.out.println("*****************************************");
-//        Bai2();
-//        System.out.println("*****************************************");
-//        System.out.println();
-//
-//        // Bai 3
-//        System.out.println("*****************************************");
-//        Bai3();
-//        System.out.println("*****************************************");
-//        System.out.println();
-//
-//        // Bai 4
-//        System.out.println("*****************************************");
-//        Bai4();
-//        System.out.println("*****************************************");
-//        System.out.println();
-//
-//        //Bai 5
-//        System.out.println("*****************************************");
-//        try {
-//            Bai5();
-//        } catch (InvalidAgeException e) {
-//            System.out.println(e.getMessage());
-//        }
-//        System.out.println("*****************************************");
-//        System.out.println();
+        // Bai 1
+        System.out.println("*****************************************");
+        Bai1();
+        System.out.println("*****************************************");
+        System.out.println();
+
+        // Bai 2
+        System.out.println("*****************************************");
+        Bai2();
+        System.out.println("*****************************************");
+        System.out.println();
+
+        // Bai 3
+        System.out.println("*****************************************");
+        Bai3();
+        System.out.println("*****************************************");
+        System.out.println();
+
+        // Bai 4
+        System.out.println("*****************************************");
+        Bai4();
+        System.out.println("*****************************************");
+        System.out.println();
+
+        //Bai 5
+        System.out.println("*****************************************");
+        try {
+            Bai5();
+        } catch (InvalidAgeException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("*****************************************");
+        System.out.println();
 
         // Bai 6
         System.out.println("*****************************************");
@@ -57,6 +57,12 @@ public class Assignment_10 {
                 System.out.println(ex.getMessage());
             }
         }
+        System.out.println("*****************************************");
+        System.out.println();
+
+        // Bai 7
+        System.out.println("*****************************************");
+        Bai7();
         System.out.println("*****************************************");
         System.out.println();
     }
@@ -171,5 +177,19 @@ public class Assignment_10 {
         a = InputUtils.InputValidIntegerNumber(scanner6, "number");
 
         if (a < 0) throw new NumberFormatException("Number should not be negative");
+    }
+
+    private static void Bai7() {
+        String currentUserProjectDirectory = System.getProperty("user.dir");
+        String filePath = currentUserProjectDirectory + "\\src\\demoFile.txt";
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+        }
     }
 }
