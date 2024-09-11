@@ -27,6 +27,12 @@ public class Assignment_5 {
         Bai3();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 4
+        System.out.println("*****************************************");
+        Bai4();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -73,6 +79,43 @@ public class Assignment_5 {
         }
 
         System.out.println("The max number in the matrix is " + maxNumber);
+    }
+
+    private static void extractElements3DArrayToFile(int[][][] arrayX, String filePath) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            for (int[][] SubArrayY : arrayX) {
+                for (int[] SubArrayZ : SubArrayY) {
+                    for (int i : SubArrayZ) {
+                        // Separate elements in a z dimension
+                        writer.write(i + " ");
+                    }
+
+                    // New line for subArray dimension y
+                    writer.write("\n");
+                }
+
+                // New line after each y for x dimension
+                writer.write("\n");
+            }
+        }
+    }
+
+    private static void Bai4() {
+
+        int[][][] threeDimensionalArray = {
+                {{1, 2, 3}, {4, 5, 6}},
+                {{7, 8, 9}, {10, 11, 12}}
+        };
+
+        String currentUserProjectDirectory = System.getProperty("user.dir");
+        String filePath = currentUserProjectDirectory + "\\src\\3dArrayElements.txt";
+
+        try {
+            extractElements3DArrayToFile(threeDimensionalArray, filePath);
+            System.out.println("Elements extracted to " + filePath);
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
     }
 
 }
