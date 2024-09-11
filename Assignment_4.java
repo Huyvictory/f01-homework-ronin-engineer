@@ -12,8 +12,14 @@ public class Assignment_4 {
         System.out.println("*****************************************");
         System.out.println();
 
-    }
+        // Bai 2
+        System.out.println("*****************************************");
+        Bai2();
+        System.out.println("*****************************************");
 
+        System.out.println();
+
+    }
 
     private static void Bai1() {
         Scanner scanner1 = new Scanner(System.in);
@@ -33,4 +39,30 @@ public class Assignment_4 {
         }
     }
 
+    private static void Bai2() {
+        String inputString = "Programming is fun";
+        // Vowels array list
+
+        List<Character> vowels = new ArrayList<>(Arrays.asList('a', 'e', 'i', 'o', 'u'));
+
+        int numberOfVowels = 0;
+        int numberOfConsonants = 0;
+
+        for (int i = 0; i < inputString.length(); i++) {
+            char currentChar = inputString.charAt(i);
+
+            if (Character.isWhitespace(currentChar)) {
+                continue;
+            }
+
+            if (vowels.contains(currentChar)) {
+                numberOfVowels++;
+            } else {
+                numberOfConsonants++;
+            }
+        }
+
+        System.out.println("The number of vowels is " + numberOfVowels);
+        System.out.println("The number of consonants is " + numberOfConsonants);
+    }
 }
