@@ -33,6 +33,13 @@ public class Assignment_3 {
 
         System.out.println();
 
+        // Bai 6
+        System.out.println("*****************************************");
+        Bai6();
+        System.out.println("******************************************");
+
+        System.out.println();
+
     }
 
     private static void Bai1() {
@@ -131,6 +138,38 @@ public class Assignment_3 {
 
         System.out.println("Circumference of a rectangle is " + ((a + b) * 2));
         System.out.println("Area of a rectangle is " + (a * b));
+    }
+
+    private static double InputValidDoubleNumber(Scanner scanner, String nameVariable) {
+        double doubleVariable;
+        System.out.println("Enter a double " + nameVariable);
+        do {
+            String userInput = scanner.next();
+            try {
+                doubleVariable = Double.parseDouble(userInput);
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input please enter a valid double number");
+            }
+        } while (true);
+        return doubleVariable;
+    }
+
+    private static boolean isValidTriangle(double a, double b, double c) {
+        return a + b > c && a + c > b && b + c > a;
+    }
+
+    private static void Bai6() {
+        Scanner scanner6 = new Scanner(System.in);
+        double a = InputValidDoubleNumber(scanner6, "a");
+        double b = InputValidDoubleNumber(scanner6, "b");
+        double c = InputValidDoubleNumber(scanner6, "c");
+
+        if (isValidTriangle(a, b, c)) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
     }
 
 }
