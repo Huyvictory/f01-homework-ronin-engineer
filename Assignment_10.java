@@ -21,6 +21,12 @@ public class Assignment_10 {
         Bai2();
         System.out.println("*****************************************");
         System.out.println();
+
+        // Bai 3
+        System.out.println("*****************************************");
+        Bai3();
+        System.out.println("*****************************************");
+        System.out.println();
     }
 
     private static void Bai1() {
@@ -65,6 +71,29 @@ public class Assignment_10 {
                 break;
             } catch (Exception e) {
                 System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    private static void Bai3() {
+        int result = 0;
+        Object a = null, b = null;
+        Scanner scanner3 = new Scanner(System.in);
+        String messageException = "";
+        while (result == 0) {
+            try {
+                if (a == null) a = InputValidIntegerNumber(scanner3, "a");
+                if (b == null) b = InputValidIntegerNumber(scanner3, "b");
+
+                result = Integer.parseInt(a.toString()) + Integer.parseInt(b.toString());
+                messageException = "";
+
+                System.out.println("a + b: " + result);
+
+            } catch (Exception e) {
+                messageException = e.getMessage();
+            } finally {
+                if (!messageException.isEmpty()) System.out.println(messageException);
             }
         }
     }
